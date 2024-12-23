@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-    Editorial by HTML5 UP
-    html5up.net | @ajlkn
-    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
     <head>
         <title>Generic - Editorial by HTML5 UP</title>
@@ -19,18 +14,6 @@
                 <!-- Main -->
                     <div id="main">
                         <div class="inner">
-
-                            <!-- Header -->
-                                <header id="header">
-                                    <a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
-                                    <ul class="icons">
-                                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                                        <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
-                                        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                                        <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
-                                    </ul>
-                                </header>
 
                             <!-- Content -->
                                 <section>
@@ -49,64 +32,6 @@
                 <!-- Sidebar -->
                     <div id="sidebar">
                         <div class="inner">
-
-                            <!-- Search -->
-                                <section id="search" class="alt">
-                                    <form method="post" action="#">
-                                        <input type="text" name="query" id="query" placeholder="Search" />
-                                    </form>
-                                </section>
-
-                            <!-- Menu -->
-                                <nav id="menu">
-                                    <header class="major">
-                                        <h2>Menu</h2>
-                                    </header>
-                                    <ul>
-                                        <li><a href="index.html">Homepage</a></li>
-                                        <li>
-                                            <span class="opener">Projects</span>
-                                            <ul>
-                                                <li><a href="projects.html">All Projects</a></li>
-                                                <li><a href="project1.html">Project 1</a></li>
-                                                <li><a href="project2.html">Project 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <span class="opener">Posts</span>
-                                            <ul>
-                                                <li><a href="posts.html">All Posts</a></li>
-                                                <li><a href="post1.html">Post 1</a></li>
-                                                <li><a href="post2.html">Post 2</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="elements.html">Elements</a></li>
-                                    </ul>
-                                </nav>
-
-                            <!-- Section -->
-                                <section>
-                                    <header class="major">
-                                        <h2>Get in touch</h2>
-                                    </header>
-                                    <p>If you'd like to get in touch, here are my details:</p>
-                                    <ul class="contact">
-                                        <li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-                                        <li class="icon solid fa-phone">(000) 000-0000</li>
-                                        <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-                                        Nashville, TN 00000-0000</li>
-                                    </ul>
-                                    <ul class="actions">
-                                        <li><a href="assets/cv/JonathanUlfLindbergCV.pdf" target="_blank" class="button">View CV</a></li>
-                                        <li><a href="assets/cv/JonathanUlfLindbergCV.pdf" download class="button primary">Download CV</a></li>
-                                    </ul>
-                                </section>
-
-                            <!-- Footer -->
-                                <footer id="footer">
-                                    <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-                                </footer>
-
                         </div>
                     </div>
 
@@ -118,6 +43,28 @@
             <script src="assets/js/breakpoints.min.js"></script>
             <script src="assets/js/util.js"></script>
             <script src="assets/js/main.js"></script>
+            <script>
+				// Load common header
+				fetch('header.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('afterbegin', data);
+					});
+				// Load sidebar
+				fetch('sidebar.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#sidebar').innerHTML = data;
+					});
+	
+				// Load footer
+				fetch('footer.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('beforeend', data);
+					});
+			</script>
+            
 
     </body>
 </html>
