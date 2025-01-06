@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>An Attempt at Some Originality – Failing Horribly</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Main -->
+                    <div id="main">
+                        <div class="inner">
+
+                            <!-- Content -->
+                            <header class="main">
+                                <h1>An Attempt at Some Originality – Failing Horribly</h1>
+                            </header>
+
+                            <span class="image main"><img src="images/250106_main.png" alt="" /></span>
+                            <section>
+                                <h2>Inspiration</h2>
+                                <p>One day, I was struck by a nostalgic memory of playing the classic Microsoft game Minesweeper as a kid. I remembered spending hours randomly clicking and enjoying the simplicity of the game. Around the same time, I had started playing chess with my friends and wondered: what if I could combine the two games into something unique? Which during the time seemed like the most original idea anyone ever have had (no foreshadow here).</p>
+                            </section>
+                    
+                            <section>
+                                <h2>Prototyping</h2>
+                                <p>While chatting with my friend Gustaf, who was in Canada and feeling bored, we brainstormed and quickly developed a prototype. The concept was simple: replace the mines in Minesweeper with chess pieces. We used four types of pieces: knights, bishops, rooks, and queens. The numbers on the tiles represented how many of these pieces could reach that particular tile.</p>
+                                <p>We implemented this using a backfilling algorithm, ensuring that the distribution of pieces and their influence created a fair and challenging experience. We also tweaked the logic to make the game intuitive and fun while retaining the strategic depth of chess moves.</p>
+                            </section>
+                    
+                            <section>
+                                <h2>Development and Release</h2>
+                                <p>After refining the prototype, we polished the design, tested the mechanics, and published the app on both the Google Play Store and the Apple App Store. We were thrilled to see our friends enjoying the game and felt proud of creating something original. However, we soon discovered that similar ideas already existed. Despite this, we believe our version stands out for its aesthetic design and smooth gameplay. But it felt a bit sad to think you invented the wheel (albiet not as useful as the wheel but you get the idea) but some dumbass have already invented the wheel 2 years ago...</p>
+                            </section>
+                    
+                            <section>
+                                <h2>How to Play</h2>
+                                <p>The rules are simple yet engaging:</p>
+                                <ul>
+                                    <li>Each tile has a number indicating how many chess pieces can reach it.</li>
+                                    <li>Your goal is to uncover tiles without triggering the chess pieces (mines).</li>
+                                    <li>Use strategic thinking and knowledge of chess movements to deduce the safe tiles.</li>
+                                </ul>
+                            </section>
+                    
+                            <section>
+                                <h2>Under the Hood</h2>
+                                <p>The game logic revolves around simulating chess piece movements on a grid. We employed algorithms to calculate the influence of each piece type on the board, dynamically adjusting the numbers on the tiles based on their positions. By incorporating backtracking and optimization techniques, we ensured that each puzzle was solvable and balanced.</p>
+                            </section>
+                    
+                            <section>
+                                <h2>Download and Try It!</h2>
+                                <p>So we invite you to experience the game for yourself (please download)! Below are the download links and a preview of how the game looks:</p>
+                                <ul>
+                                    <li><a href="https://play.google.com/store/apps/details?id=se.thinairstudios.chesssweeper">Download on Google Play</a></li>
+                                    <li><a href="https://apps.apple.com/se/app/chesssweeper/id6475792499">Download on the App Store</a></li>
+                                </ul>
+                                <figure>
+                                    <img src="images/250106_random_puzzle.webp" alt="Chess Minesweeper Screenshot" style="max-width: 100%; height: auto;">
+                                    <figcaption>A sneak peek at the game interface!</figcaption>
+                                </figure>
+                            </section>
+                    
+                            <section>
+                                <h2>Feedback</h2>
+                                <p>We’d love to hear your thoughts and suggestions! Your feedback will help us improve the game and create even better experiences in the future. Thank you for your support!</p>
+                            </section>
+
+                        </div>
+                    </div>
+
+                <!-- Sidebar -->
+                    <div id="sidebar">
+                        <div class="inner">
+                        </div>
+                    </div>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script>
+				// Load common header
+				fetch('header.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('afterbegin', data);
+					});
+				// Load sidebar
+				// Load sidebar
+				fetch('sidebar.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#sidebar').innerHTML = data;
+
+						// Reinitialize event listeners for opener elements
+						document.querySelectorAll('#menu .opener').forEach(opener => {
+							opener.addEventListener('click', function () {
+								const parent = this.parentElement;
+								parent.classList.toggle('active');
+							});
+						});
+					})
+					.catch(error => console.error('Error loading sidebar:', error));
+	
+				// Load footer
+				fetch('footer.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('beforeend', data);
+					});
+			</script>
+            
+
+    </body>
+</html>

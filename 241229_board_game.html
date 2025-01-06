@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Autistic analysis on board game - Carcassonne </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Main -->
+                    <div id="main">
+                        <div class="inner">
+
+                            <!-- Content -->
+                                <section>
+                                    <header class="main">
+                                        <h1>Autistic analysis on board game - Carcassonne</h1>
+                                    </header>
+
+                                    <span class="image main"><img src="images/241229_main.png" alt="" /></span>
+                                    <article>
+                                        <p>
+                                            For Christmas, I gave my girlfriend the board game  <em>Carcassonne</em>. In hindsight, it feels like I might have gifted it to myself just as much as to her—to enjoy together or share with friends and family during gatherings. I quickly grew fond of its simple rules and logical mechanics, and it made me think about game design, or more precisely, reverse engineering why a game like <em>Carcassonne</em> is fun. This post is my attempt to analyze the mechanics of a board game and explore what makes them enjoyable while also considering how these insights can inspire new designs.
+                                        </p>
+                                
+                                
+                                        <p>
+                                            The title I’ve considered, <em>Autistic Analysis on Board Game Design</em>, might be insensitive, but I chose it to reflect a methodical focus on the game’s mechanics rather than its social or interactive aspects. While much of a board game’s enjoyment comes from social interaction and other complex variables, my goal here is to distill the "fun" down to the core mechanics themselves.
+                                        </p>
+                                    </article>
+                                
+                                    <article>
+                                        <header>
+                                            <h3>Game Design as an Autoencoder</h3>
+                                        </header>
+                                        <figure>
+                                            <img src="images/241229_autoencoder.png" alt="Carcassonne board game setup" />
+                                            <figcaption>The game of Carcassonne inspires analysis of board game mechanics.</figcaption>
+                                        </figure>
+                                        <p>
+                                            To approach this, I like to think of game design as an autoencoder. An autoencoder in machine learning reduces data to a compressed form, called a latent space, and then attempts to recreate the original data from it. This idea is analogous to isolating essential game mechanics and seeing how well the "core" recreates the gameplay experience. Similarly, I aim to describe the design choices of a game as an efficient coding system. By removing or restoring specific mechanics, I want to examine how each change alters the gameplay experience. This process highlights the mechanics that are essential to the game’s identity and offers inspiration for creating new games.
+                                        </p>
+                                    </article>
+
+                                    <article>
+                                        <header>
+                                            <h3>Analyzing the Mechanics</h3>
+                                        </header>
+                                        <p>
+                                            Let’s take <em>Carcassonne</em> as an example. There are multiple ways to code its mechanics, but the focus here is on the latent space—the minimal essence that makes the game engaging. I’ll describe one possible coding where we analyze and remove mechanics step by step, observing the resulting changes:
+                                        </p>
+
+                                    
+                                        <h4>1. Immediate Scoring with Meeples</h4>
+                                        <p>
+                                            This mechanic involves placing meeples on tiles to score points when features (e.g., roads, cities, or farms) are completed, and then reclaiming the meeples. Without this mechanic, players collaborate to build a shared board. Meeples merely mark ownership without influencing scoring directly.
+                                        </p>
+                                        <p>
+                                            Without scoring, the gameplay emphasizes spatial optimization and risk-reward balance. Players might focus on closing incomplete features or enhancing their own future options. However, the removal of scoring mechanics reduces the pressure to make precise moves, shifting the game’s dynamic.
+                                        </p>
+                                    
+                                        <h4>2. Blocking Opponents</h4>
+                                        <p>
+                                            Meeples also enable blocking strategies, preventing opponents from completing or scoring features. Removing this aspect eliminates direct competition, leaving only tile placement optimization. Players now focus on their own scoring opportunities without disrupting others.
+                                        </p>
+                                    
+                                    
+                                        <h3>The Latent Game</h3>
+                                        <p>
+                                            In the abstracted model, the essence of <em>Carcassonne</em> becomes an optimization problem: drawing a tile (graph T) and determining its best placement on the board (graph G). The puzzle element lies in maximizing rewards while navigating constraints, making each decision meaningful and engaging.
+                                        </p>
+                                        <figure>
+                                            <img src="images/241229_graph.png" alt="Meeples and tiles in Carcassonne" />
+                                            <figcaption>Mechanics like meeples and scoring contribute to Carcassonne's charm.</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="images/241229_graph2.png" alt="Carcassonne board as a planar graph" />
+                                            <figcaption>Viewing the board as a planar graph simplifies gameplay mechanics.</figcaption>
+                                        </figure>
+                                    
+                                        <h3>Insights and Applications</h3>
+                                        <p>
+                                            By examining <em>Carcassonne</em> through this lens, we uncover the core mechanics that drive its enjoyment. It's the interplay between tile placement, resource management, and competition that creates a dynamic experience. Understanding these elements allows us to iterate on existing designs or develop entirely new games inspired by similar principles.
+                                        </p>
+                                        <p>
+                                            In conclusion, reverse engineering a game like <em>Carcassonne</em> reveals the importance of balanced mechanics. By isolating and analyzing these components, we gain a deeper understanding of what makes board games enjoyable, offering a foundation for innovation. Or, we could strip away the thematic layers and explore the graph-theoretic optimization game at its core!
+                                        </p>
+                                    </article>
+
+
+                                </section>
+
+                        </div>
+                    </div>
+
+                <!-- Sidebar -->
+                    <div id="sidebar">
+                        <div class="inner">
+                        </div>
+                    </div>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script>
+				// Load common header
+				fetch('header.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('afterbegin', data);
+					});
+				// Load sidebar
+				fetch('sidebar.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#sidebar').innerHTML = data;
+
+						// Reinitialize event listeners for opener elements
+						document.querySelectorAll('#menu .opener').forEach(opener => {
+							opener.addEventListener('click', function () {
+								const parent = this.parentElement;
+								parent.classList.toggle('active');
+							});
+						});
+					})
+					.catch(error => console.error('Error loading sidebar:', error));
+	
+				// Load footer
+				fetch('footer.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('beforeend', data);
+					});
+			</script>
+            
+
+    </body>
+</html>
