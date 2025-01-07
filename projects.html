@@ -1,11 +1,111 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Projects</title>
+        <title>Autistic analysis on board game - Carcassonne </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="assets/css/main.css" />
     </head>
-    <body>
-        <h1>Projects</h1>
-        <p>Here is where I will list my projects.</p>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Main -->
+                    <div id="main">
+                        <div class="inner">
+
+                            <!-- Content -->
+							<section>
+								<h2>Welcome</h2>
+								<p>This is where I keep track of my ongoing projects. Working on projects allows me to explore new ideas, learn new skills, and bring creative solutions to life. Each project here is a reflection of my interests and passion for building meaningful things.</p>
+							</section>
+					
+							<section>
+								<h2>Projects</h2>
+					
+
+									<article>
+										<span class="icon solid fa-puzzle-piece"></span>
+										<div class="content">
+											<h3><a href="aboutme.html">Chess Sweeper</a></h3>
+											<p>Combining to of the most played games of history together - Minesweeper + Chess = Chess Sweeper</p>
+
+										</div>
+									</article>
+									<article>
+										<span class="icon solid fa fa-th"></span>
+										<div class="content">
+											<h3><a href="aboutme.html">Volume Rendering</a></h3>
+											<p>Post with thoughts and theory about everything that's related to volume rendering. Both work related and project related, where I started prototyping about a casual volume rendering VR. </p>
+	
+										</div>
+									</article>
+									<article>
+										<span class="icon solid fa fa-space-shuttle"></span>
+										<div class="content">
+											<h3><a href="aboutme.html">Board Game</a></h3>
+											<p>All about weird thoughts about board games theory and some development of sub-par board games.</p>
+
+										</div>
+									</article>
+									<article>
+										<span class="icon solid fa-book"></span>
+										<div class="content">
+											<h3><a href="aboutme.html">Busy Work</a></h3>
+											<p>Anything that's under "Ah I'm too busy to do this" or "This sounds like a lot of unnecessary work". </p>
+										</div>
+									</article>
+							</section>
+
+                        </div>
+                    </div>
+
+                <!-- Sidebar -->
+                    <div id="sidebar">
+                        <div class="inner">
+                        </div>
+                    </div>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script>
+				// Load common header
+				fetch('header.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('afterbegin', data);
+					});
+				// Load sidebar
+				fetch('sidebar.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#sidebar').innerHTML = data;
+
+						// Reinitialize event listeners for opener elements
+						document.querySelectorAll('#menu .opener').forEach(opener => {
+							opener.addEventListener('click', function () {
+								const parent = this.parentElement;
+								parent.classList.toggle('active');
+							});
+						});
+					})
+					.catch(error => console.error('Error loading sidebar:', error));
+	
+				// Load footer
+				fetch('footer.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('beforeend', data);
+					});
+			</script>
+            
+
     </body>
 </html>

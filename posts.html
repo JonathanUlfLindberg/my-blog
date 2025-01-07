@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Autistic analysis on board game - Carcassonne </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Main -->
+                    <div id="main">
+                        <div class="inner">
+
+                            <!-- Content -->
+							<header>
+								<h1>Posts Archive</h1>
+							</header>
+					
+							<section>
+                                <p>Here is where I keep posts about various topics—ranging from game design to personal projects and reflections.</p>
+
+
+								  <!-- January 2025 Section -->
+								<section>
+									<h2>January 2025</h2>
+									<ul>
+									<li><a href="250106_chess_sweeper.html">Attempt at Some Originality - Failing Horribly</a></li>
+									</ul>
+								</section>
+
+								<!-- December 2024 Section -->
+								<section>
+									<h2>December 2024</h2>
+									<ul>
+									<li><a href="241229_board_game.html">Autistic Analysis on Board Game - Carcassonne</a></li>
+									</ul>
+								</section>
+
+
+                        </div>
+                    </div>
+
+                <!-- Sidebar -->
+                    <div id="sidebar">
+                        <div class="inner">
+                        </div>
+                    </div>
+
+            </div>
+
+        <!-- Scripts -->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+            <script>
+				// Load common header
+				fetch('header.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('afterbegin', data);
+					});
+				// Load sidebar
+				fetch('sidebar.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#sidebar').innerHTML = data;
+
+						// Reinitialize event listeners for opener elements
+						document.querySelectorAll('#menu .opener').forEach(opener => {
+							opener.addEventListener('click', function () {
+								const parent = this.parentElement;
+								parent.classList.toggle('active');
+							});
+						});
+					})
+					.catch(error => console.error('Error loading sidebar:', error));
+	
+				// Load footer
+				fetch('footer.html')
+					.then(response => response.text())
+					.then(data => {
+						document.querySelector('#main .inner').insertAdjacentHTML('beforeend', data);
+					});
+			</script>
+            
+
+    </body>
+</html>
